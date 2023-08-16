@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
 const count = ref(0);
 const status = 6;
 const visits = ref([
