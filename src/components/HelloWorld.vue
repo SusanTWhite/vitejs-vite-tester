@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
+//import DataTable from 'primevue/datatable';
+//import Column from 'primevue/column';
 const count = ref(0);
 const status = 6;
 const visits = ref([
@@ -51,30 +51,13 @@ defineProps<{ msg: string }>();
       dataKey="visitId"
       @rowSelect="onRowSelect"
       :globalFilterFields="['program.name', 'visitTypeStr', 'scheduledDateStr']"
-    -->
-    <DataTable
-      :value="actives"
-      :rows="5"
       selectionMode="single"
       :paginator="true"
       :rowsPerPageOptions="[5, 20, 50]"
       currentPageReportTemplate=" {totalRecords} visits found"
       paginatorTemplate="CurrentPageReport  PrevPageLink PageLinks NextPageLink"
-    >
-      <Column field="visitId" :hidden="true"></Column>
-      <Column
-        field="visitTypeStr"
-        header="Visit Type"
-        :sortable="true"
-      ></Column>
-      <!--This column only displays on Requested visits-->
-      <!--v-if="actives.some((v) => v.visitStatusStr === 'Requested')"-->
-      <Column
-        field="creationUserDisplayName"
-        header="Requested By"
-        sortable
-      ></Column>
-      <!--
+    -->
+    <!--
         v-if="
           actives.some(
             (v) =>
@@ -83,12 +66,29 @@ defineProps<{ msg: string }>();
           )
         "
         -->
+    <!--This column only displays on Requested visits-->
+    <!--v-if="actives.some((v) => v.visitStatusStr === 'Requested')"-->
+    <!--DataTable
+      :value="actives"
+      :rows="5"
+    >
+      <Column field="visitId" :hidden="true"></Column>
+      <Column
+        field="visitTypeStr"
+        header="Visit Type"
+        :sortable="true"
+      ></Column>
+      <Column
+        field="creationUserDisplayName"
+        header="Requested By"
+        sortable
+      ></Column>
       <Column field="visitStatusStr" header="Reason"></Column>
-    </DataTable>
-    <!--p>
+    </DataTable-->
+    <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
-    </p-->
+    </p>
   </div>
 
   <!--p>
