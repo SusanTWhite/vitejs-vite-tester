@@ -68,13 +68,13 @@ defineProps<{ msg: string }>();
         :sortable="true"
       ></Column>
       <!--This column only displays on Requested visits-->
+      <!--v-if="actives.some((v) => v.visitStatusStr === 'Requested')"-->
       <Column
-        v-if="actives.some((v) => v.visitStatusStr === 'Requested')"
         field="creationUserDisplayName"
         header="Requested By"
         sortable
       ></Column>
-      <Column
+      <!--
         v-if="
           actives.some(
             (v) =>
@@ -82,9 +82,8 @@ defineProps<{ msg: string }>();
               v.visitStatusStr === 'Request Declined'
           )
         "
-        field="visitStatusStr"
-        header="Reason"
-      ></Column>
+        -->
+      <Column field="visitStatusStr" header="Reason"></Column>
     </DataTable>
     <!--p>
       Edit
